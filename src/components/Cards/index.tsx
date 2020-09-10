@@ -14,8 +14,11 @@ interface CardProperties{
 const CardBox=styled.div`
     display:flex;
     flex-direction:column;
-    max-width:25%;
+    max-width:27%;
     margin:0.8rem;
+    @media screen and (max-width:500px){
+        min-width:90%;
+    }
 `;
 const CardHeader=styled.div`
     display:flex;
@@ -25,6 +28,10 @@ const CardHeader=styled.div`
     margin: 0 auto;
     background: var(--rd-salmon-rose);
     width:100%;
+    @media screen and (max-width:500px){
+        align-items:center;
+        min-width:90%;
+    }
 `;
 const Label=styled.label`
     padding:8px;
@@ -36,6 +43,9 @@ const Label=styled.label`
 const Img=styled.img`
     display:flex;
     padding:1.7rem;
+    @media screen and (max-width:500px){
+        align-content:center;
+    }
 `;
 const CardBody=styled.div`
     background-color:white;

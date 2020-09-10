@@ -12,6 +12,10 @@ const Row=styled.div`
     .centered{
         justify-content:center;
     }
+    @media screen and (max-width:500px){
+        flex-direction:column;
+        min-width:100%;
+    }
 `;
 const Col=styled.div`
     display:flex;
@@ -55,14 +59,6 @@ const Home=()=>{
                                 buttonBgColor="--rd-salmon-rose"
                                 buttonTextColor="black"></Cards>
                         <Cards title="Site Responsívo MOBILE"
-                                sumary="Quando pressionado o botão alterar tema... modifique o tema do site para blackfriday a seu gosto."
-                                image={ImgMobile}
-                                buttonText="Alterar tema..."
-                                buttonBgColor="--rd-salmon-rose"
-                                buttonTextColor="black"></Cards>
-                    </Row>
-                    <Row className="center">
-                    <Cards title="Site Responsívo MOBILE"
                                 sumary="Quando pressionado o botão alterar tema... modifique o tema do site para blackfriday a seu gosto."
                                 image={ImgMobile}
                                 buttonText="Alterar tema..."
