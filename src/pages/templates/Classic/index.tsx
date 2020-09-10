@@ -5,7 +5,7 @@ import Footer from '../../../components/Footer';
 
 const Main=styled.main`
     display:flex;
-    flex-direction:row;
+    flex: 1 0 auto;
     width:95%;
     min-height:77vh;
     padding:12px;

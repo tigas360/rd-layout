@@ -4,11 +4,15 @@
   box-sizing: border-box;
 }
 
-html,#root {
+html, body, #root {
   height: 100vh;
+  margin: 0 auto;
 }
 
 body{
+  display:flex;
+  flex-direction: column;
+  width:1200px;
   height: 100vh;
   background-image: url('./assets/images/bg.jpg');
   font-family: 'Open Sans','Helvetica','Sans-serif','Arial';

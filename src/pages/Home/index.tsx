@@ -20,6 +20,10 @@ const Col=styled.div`
         justify-content:center;
     }
 `;
+const Title=styled.h1`
+    font-weight: 300;
+    color: var(--rd-green);
+`;
 
 const Home=()=>{
 
@@ -28,14 +32,14 @@ const Home=()=>{
             <Classic>
                 <Col>
                     <Row className="center">
-                        <h1>
+                        <Title>
                             Crie este site <strong>Responsívo</strong> com <strong>REACT</strong>
-                        </h1>
+                        </Title>
                     </Row>
                     <Row className="center">
-                        <h1>
+                        <Title>
                             utilizando <b>styled-component</b>
-                        </h1>
+                        </Title>
                     </Row>
                     <Row className="center">
                         <Cards title="Site Responsívo DESKTOP"
@@ -51,6 +55,14 @@ const Home=()=>{
                                 buttonBgColor="--rd-salmon-rose"
                                 buttonTextColor="black"></Cards>
                         <Cards title="Site Responsívo MOBILE"
+                                sumary="Quando pressionado o botão alterar tema... modifique o tema do site para blackfriday a seu gosto."
+                                image={ImgMobile}
+                                buttonText="Alterar tema..."
+                                buttonBgColor="--rd-salmon-rose"
+                                buttonTextColor="black"></Cards>
+                    </Row>
+                    <Row className="center">
+                    <Cards title="Site Responsívo MOBILE"
                                 sumary="Quando pressionado o botão alterar tema... modifique o tema do site para blackfriday a seu gosto."
                                 image={ImgMobile}
                                 buttonText="Alterar tema..."
