@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import logo from '../../assets/images/rd.png'
 import { Link } from 'react-router-dom';
 
+interface IMainMenu{
+    open?:boolean,
+}
 const header = styled.header`
     display:flex;
     flex-direction:column;
@@ -34,7 +37,9 @@ const Nav = styled.nav`
         }
     }
 `;
-const RightMenu=styled.div`
+const RightMenu=styled.div.attrs((props:any)=>({
+    open:props.open || false,
+}))`
     text-decoration:none;
     padding-bottom: 1.8rem;
     padding-right:0.5rem;
@@ -47,9 +52,33 @@ const RightMenu=styled.div`
         width:70%;
         z-index:100;
         font-weight:800;
+        visibility:${props => props.open ? "visible":"hidden"};
     }
 `;
-
+const BurgerMenuIcon=styled.div.attrs((props:any)=>({
+    open:props.open || false,
+}))`
+    div{
+        width:2rem;
+        height:0.25rem;
+        background-color:var(--rd-green);
+        position:relative;
+        margin: 3px 0;
+        display:none;
+     }
+     @media screen and (max-width:500px){
+         div{
+            display:block;
+            position:relative;
+            top: -47px;
+            left: 188px;
+            width:3rem;
+            height:0.35rem;
+            background-color:var(--rd-green);
+            margin: 5px 0;
+         }
+ }
+`
 const ButtonMenu=styled(Link)`
     padding: 0 0.6rem;
     text-decoration:none;
@@ -64,8 +93,8 @@ const ButtonMenu=styled(Link)`
         }
     }
 `;
-const MainMenu=()=>{
-
+const MainMenu:React.FC<IMainMenu>=(props:any)=>{
+    const [open,setOpen]=useState(false);
     return(
         <>
             <header>
@@ -73,7 +102,12 @@ const MainMenu=()=>{
                     <div>
                         <img alt="RD Gente Saúde e Bem-estar" src={logo}></img>
                     </div>
-                    <RightMenu>
+                    <BurgerMenuIcon open={open} onClick={()=>setOpen(!open)}>
+                        <div/>
+                        <div/>
+                        <div/>
+                    </BurgerMenuIcon>
+                    <RightMenu open={open}>
                         <ButtonMenu to="/" >HTML5</ButtonMenu>
                         <ButtonMenu to="/" >CSS</ButtonMenu>
                         <ButtonMenu to="/" >JAVASCRIPT</ButtonMenu>
