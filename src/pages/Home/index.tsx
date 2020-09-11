@@ -49,21 +49,24 @@ const Home=()=>{
                         <Cards title="Site Responsívo DESKTOP"
                                 sumary="Quando pressionado o botão Leia mais... o restante da informação deverá aparecer em scroll down."
                                 image={ImgDesktop}
-                                buttonText="Leia mais..."
-                                buttonBgColor="--rd-salmon-rose"
-                                buttonTextColor="black"></Cards>
+                                buttontext="Leia mais..."
+                                bgcolor="--rd-salmon-rose"
+                                buttonbgcolor="--rd-salmon-rose"
+                                buttontextcolor="white"></Cards>
                         <Cards title="Site Responsívo TABLET"
                                 sumary="Quando pressionado o botão Leia mais... a informação deverá aparecer completa em um popup na tela."
                                 image={ImgTablet}
-                                buttonText="Leia mais..."
-                                buttonBgColor="--rd-salmon-rose"
-                                buttonTextColor="black"></Cards>
+                                bgcolor="--rd-light-orange"
+                                buttontext="Leia mais..."
+                                buttonbgcolor="--rd-light-orange"
+                                buttontextcolor="white"></Cards>
                         <Cards title="Site Responsívo MOBILE"
                                 sumary="Quando pressionado o botão alterar tema... modifique o tema do site para blackfriday a seu gosto."
                                 image={ImgMobile}
-                                buttonText="Alterar tema..."
-                                buttonBgColor="--rd-salmon-rose"
-                                buttonTextColor="black"></Cards>
+                                bgcolor="--rd-purple"
+                                buttontext="Alterar tema..."
+                                buttonbgcolor="--rd-purple"
+                                buttontextcolor="white"></Cards>
                     </Row>
                 </Col>
             </Classic>

@@ -1,4 +1,7 @@
-*{
+import {createGlobalStyle} from 'styled-components';
+import ImgBackground from '../assets/images/bg.jpg';
+export default createGlobalStyle`
+    *{
   margin:0;
   padding:0;
   box-sizing: border-box;
@@ -14,7 +17,7 @@ body{
   flex-direction: column;
   width:1200px;
   height: 100vh;
-  background-image: url('./assets/images/bg.jpg');
+  background-image: url(${ImgBackground});
   font-family: 'Open Sans','Helvetica','Sans-serif','Arial';
 }
 
@@ -31,3 +34,4 @@ body{
   min-height: 100vh;
   flex-direction: column;
 }
+`;

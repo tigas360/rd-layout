@@ -1,4 +1,4 @@
-import React, { Props } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -6,9 +6,10 @@ interface CardProperties{
     title: string,
     sumary: string,
     image?:string,
-    buttonText?:string,
-    buttonTextColor?:string,
-    buttonBgColor?:string
+    buttontext?:string,
+    buttontextcolor?:string,
+    buttonbgcolor?:string,
+    bgcolor?:string,
 }
 
 const CardBox=styled.div`
@@ -20,13 +21,15 @@ const CardBox=styled.div`
         min-width:90%;
     }
 `;
-const CardHeader=styled.div`
+const CardHeader=styled.div.attrs((props:any)=>({
+    bgcolor:props.bgcolor || 'yellow',
+}))`
     display:flex;
     flex-direction:column;
     text-align:center;
     padding: 1rem 0.5rem;
     margin: 0 auto;
-    background: var(--rd-salmon-rose);
+    background: var(${(props:any)=>props.bgcolor});
     width:100%;
     @media screen and (max-width:500px){
         align-items:center;
@@ -59,27 +62,26 @@ const CardFooter=styled.div`
     min-height:48px;
     justify-content:flex-end;
 `;
-
-interface IColorProps{
-    buttonTextColor?:string;
-    buttonBgColor?:string;
-}
-const CardButton=styled(Link)<IColorProps>`
+const CardButton=styled(Link).attrs((props:any)=>({
+    buttontextcolor: props.buttontextcolor || 'blue',  
+  buttonbgcolor:props.buttonbgcolor || 'gray',
+}))`
     display:block;
-    color: ${props => `${props.buttonTextColor}`||"white"};
+    color: ${(props:any) => props.buttontextcolor};
     padding: .3rem;
     min-width:64px;
     height:32px;
     margin-right:12px;
-    background-color: ${props => `${props.buttonBgColor}`}||'lightblue';
+    background-color: var(${(props:any) => props.buttonbgcolor});
 `;
 
+
 const Cards:React.FC<CardProperties>=(props)=>{
-    console.log(props.buttonBgColor);
+
     return(
         <>
             <CardBox>
-                <CardHeader>
+                <CardHeader bgcolor={props.bgcolor}>
                     <Img alt={props.image} src={props.image}></Img>
                     <Label>{props.title}</Label>
                 </CardHeader>
@@ -88,8 +90,11 @@ const Cards:React.FC<CardProperties>=(props)=>{
                 </CardBody>
                 <CardFooter>
                     {
-                    props.buttonText &&
-                    <CardButton to="/">{props.buttonText}</CardButton>
+                    props.buttontext &&
+                    <CardButton buttontextcolor={props.buttontextcolor} 
+                                buttonbgcolor={props.buttonbgcolor} 
+                                to="/">{props.buttontext}
+                    </CardButton>
                     }
                 </CardFooter>
             </CardBox>
